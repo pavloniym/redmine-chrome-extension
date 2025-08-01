@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Redmine Quick Task",
+  "version": "1.0.0",
+  "description": "Создание задач в Redmine в один клик с пресетами и учётом времени.",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["css/*", "js/*", "vendor/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+

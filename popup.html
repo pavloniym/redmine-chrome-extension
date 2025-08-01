@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Redmine Quick Task</title>
+    <script src="vendor/tailwindcss-browser@4.js"></script>
+</head>
+<body class="bg-gray-50 w-80 font-sans text-sm">
+<div class="shadow bg-white rounded-lg border border-gray-200">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between bg-gray-800 text-white px-3 py-2">
+        <span id="pageTitle" class="font-medium">Redmine Quick Task</span>
+        <div class="flex gap-1">
+            <button id="btnTask" class="p-1 rounded hover:bg-gray-700 transition" title="Новая задача">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+            </button>
+            <button id="btnPresets" class="p-1 rounded hover:bg-gray-700 transition" title="Пресеты">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5v14l7-7 7 7V5z" /></svg>
+            </button>
+            <button id="btnSettings" class="p-1 rounded hover:bg-gray-700 transition" title="Настройки">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.591 1.12c1.52-.88 3.437.538 2.558 2.058a1.724 1.724 0 001.12 2.59c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.12 2.591c.88 1.52-.538 3.437-2.058 2.558a1.724 1.724 0 00-2.59 1.12c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.591-1.12c-1.52.88-3.437-.538-2.558-2.058a1.724 1.724 0 00-1.12-2.59c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.12-2.591c-.88-1.52.538-3.437 2.058-2.558.996.577 2.164.177 2.59-1.12z" /></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Task Page -->
+    <div id="taskPage" class="p-3 space-y-2">
+        <select id="presetSelect" class="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-gray-300">
+            <option value="">(Не выбран)</option>
+        </select>
+        <input id="subject" type="text" placeholder="Заголовок" class="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-gray-300" />
+        <textarea id="description" placeholder="Описание" class="w-full border border-gray-300 rounded px-2 py-1 h-20 focus:outline-none focus:ring focus:ring-gray-300"></textarea>
+        <input id="spentHours" type="number" step="0.1" min="0" placeholder="Затрачено часов" class="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-gray-300" />
+        <button id="createTask" class="w-full bg-gray-800 hover:bg-gray-700 text-white py-1.5 rounded transition">Создать задачу</button>
+        <div id="status" class="text-xs text-gray-600 mt-1"></div>
+    </div>
+
+    <!-- Settings Page -->
+    <div id="settingsPage" class="p-3 space-y-2 hidden">
+        <input id="redmineUrl" type="text" placeholder="Redmine URL" class="w-full border border-gray-300 rounded px-2 py-1 focus:ring focus:ring-gray-300" />
+        <input id="apiKey" type="text" placeholder="API Key" class="w-full border border-gray-300 rounded px-2 py-1 focus:ring focus:ring-gray-300" />
+        <button id="saveSettings" class="w-full bg-gray-800 hover:bg-gray-700 text-white py-1.5 rounded transition">Сохранить</button>
+        <div id="settingsStatus" class="text-xs text-gray-600 mt-1"></div>
+    </div>
+
+    <!-- Presets Page -->
+    <div id="presetsPage" class="p-3 space-y-2 hidden">
+        <input id="presetName" type="text" placeholder="Название" class="w-full border border-gray-300 rounded px-2 py-1 focus:ring focus:ring-gray-300" />
+        <input id="presetProjectId" type="text" placeholder="Project ID" class="w-full border border-gray-300 rounded px-2 py-1 focus:ring focus:ring-gray-300" />
+        <input id="presetTrackerId" type="number" placeholder="Tracker ID" class="w-full border border-gray-300 rounded px-2 py-1 focus:ring focus:ring-gray-300" />
+        <input id="presetAssignedToId" type="text" placeholder="Assigned To ID" class="w-full border border-gray-300 rounded px-2 py-1 focus:ring focus:ring-gray-300" />
+        <button id="addPreset" class="w-full bg-gray-800 hover:bg-gray-700 text-white py-1.5 rounded transition">Добавить пресет</button>
+        <div id="presetStatus" class="text-xs text-gray-600 mt-1"></div>
+        <div id="presetsList" class="space-y-1"></div>
+    </div>
+</div>
+</body>
+<script type="module" src="js/popup.js"></script>
+</html>
