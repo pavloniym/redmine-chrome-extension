@@ -5,7 +5,7 @@
   "description": "Создание задач в Redmine в один клик с пресетами и учётом времени.",
   "permissions": ["storage", "activeTab"],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "popup.html"
   },
   "web_accessible_resources": [
     {
