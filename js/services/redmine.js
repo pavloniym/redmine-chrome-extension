@@ -6,7 +6,7 @@ export default class Redmine {
             subject,
             description
         };
-        if (assignedToId) issue.assigned_to_id = assignedToId;
+        if (assignedToId) issue.assigned_to_id = parseInt(assignedToId, 10);
 
         const response = await fetch(`${url}/issues.json`, {
             method: "POST",
